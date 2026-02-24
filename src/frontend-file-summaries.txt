@@ -1,0 +1,19 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining routes for home, category, and app detail pages with a shared layout including navbar and footer.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations including fetching apps, searching, filtering by category, and submitting reviews with proper cache invalidation.",
+  "frontend/src/pages/HomePage.tsx": "Home page displaying hero banner, featured apps, popular apps sorted by downloads, and horizontally scrollable category sections.",
+  "frontend/src/pages/CategoryPage.tsx": "Category browsing page showing apps filtered by category with sorting options (popularity, rating, name) in a responsive grid layout.",
+  "frontend/src/pages/AppDetailPage.tsx": "Detailed app page displaying full app information, screenshots gallery, ratings summary, reviews list, and review submission form.",
+  "frontend/src/components/AppCard.tsx": "Reusable app card component displaying app icon, name, developer, and star rating with hover effects and navigation to detail page.",
+  "frontend/src/components/StarRating.tsx": "Visual star rating display component showing filled, half-filled, and empty stars based on rating value with configurable sizes, using ReactElement[] type from React.",
+  "frontend/src/components/StarRatingInput.tsx": "Interactive star rating input component allowing users to select ratings from 1-5 stars with hover states.",
+  "frontend/src/components/CategorySection.tsx": "Horizontally scrollable category section component with category icon, title, and filtered app cards with \"See all\" link.",
+  "frontend/src/components/SearchBar.tsx": "Search bar with debounced input, real-time results dropdown showing matching apps by name and developer with navigation.",
+  "frontend/src/components/Navbar.tsx": "Sticky navigation bar with logo, search functionality, category links, and responsive mobile menu with sheet drawer.",
+  "frontend/src/components/Footer.tsx": "Footer component with copyright information and attribution link to caffeine.ai with UTM tracking parameters.",
+  "frontend/src/components/ScreenshotsGallery.tsx": "Carousel-based screenshots gallery with modal preview functionality for viewing full-size images.",
+  "frontend/src/components/ReviewsList.tsx": "Reviews list component displaying user reviews with star ratings, timestamps, and reviewer information.",
+  "frontend/src/components/ReviewForm.tsx": "Review submission form with star rating selector, text area for comments, validation, and success/error handling.",
+  "frontend/src/index.css": "Global styles with vibrant OKLCH color system featuring deep teal primary, coral secondary, and electric orange accent colors for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom brand colors, enhanced shadows, and design tokens matching the vibrant app store theme."
+}

@@ -1,0 +1,194 @@
+{
+  "kind": "build_request",
+  "title": "Build Champ Playstore app discovery platform",
+  "projectName": "Champ Playstore",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model for apps including fields: app ID, name, description, developer name, category, version, file size, rating (0-5 scale), number of reviews, download count, icon URL, screenshots array, and release date",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App type is defined in Motoko with all specified fields",
+        "Apps can be created and stored with persistent state",
+        "App data can be queried by ID"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend functions to retrieve all apps, get apps by category, search apps by name or developer, and get individual app details by ID",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Query function returns all apps in the store",
+        "Category filter returns only apps matching the specified category",
+        "Search function returns apps matching name or developer keywords",
+        "Get app by ID returns complete app details"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a backend system for app categories including predefined categories like Games, Social, Productivity, Entertainment, Education, and Tools",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Categories are defined as an enumeration or stable data structure",
+        "Each app can be assigned to one category",
+        "Function to retrieve all available categories exists"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement a ratings and reviews system in the backend where users can submit ratings (1-5 stars) and text reviews for apps, with the ability to calculate and update average ratings",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can submit a rating and review for an app",
+        "Reviews are stored with user identifier, rating, comment text, and timestamp",
+        "Average rating is calculated and stored for each app",
+        "Reviews can be retrieved for a specific app"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Build a home page displaying featured apps, popular apps (sorted by download count), and category sections with horizontal scrollable app cards showing app icon, name, developer, and rating",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home page renders with distinct sections for featured and popular apps",
+        "Each app card displays icon, name, developer, and star rating",
+        "Category sections are horizontally scrollable",
+        "Page is responsive and works on mobile and desktop"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create a search interface with a prominent search bar that filters apps in real-time as users type, displaying matching results with app icons, names, categories, and ratings",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Search bar is visible and accessible from the main navigation",
+        "Search results update dynamically as user types",
+        "Results display app icon, name, category, and rating",
+        "Clicking a result navigates to the app detail page"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement category browsing pages showing all apps within a selected category with grid layout, sorting options (by popularity, rating, name), and filtering capabilities",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Category page displays all apps in selected category in a grid layout",
+        "Users can sort apps by popularity, rating, or alphabetically",
+        "Page navigation works for each predefined category",
+        "Grid is responsive across screen sizes"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build detailed app pages showing full app information including large icon, screenshots gallery, full description, developer info, version details, file size, ratings summary, and user reviews list",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App detail page displays all app metadata fields",
+        "Screenshots are shown in a gallery or carousel",
+        "Ratings are displayed with visual star representation and average score",
+        "User reviews are listed with rating, comment, and timestamp",
+        "Install/Download button is prominently displayed"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create a review submission interface on app detail pages allowing users to select a star rating and write a text review, then submit it to the backend",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Review form includes star rating selector (1-5 stars)",
+        "Text area allows users to write review comments",
+        "Submit button posts review to backend",
+        "Form validates that rating is selected before submission",
+        "Success message shown after successful review submission"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Design a vibrant, modern app store interface with a bold color scheme inspired by digital marketplaces, featuring card-based layouts, smooth transitions, clear typography hierarchy, and engaging visual elements that create an inviting browsing experience",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Consistent color palette applied across all pages",
+        "Typography uses clear hierarchy with readable fonts",
+        "Interactive elements have hover and focus states",
+        "Card components have consistent styling with shadows or borders",
+        "Overall design feels cohesive and professional"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use single-actor architecture with all Motoko logic in backend/main.mo",
+    "Do not modify immutable frontend paths including useInternetIdentity hooks and UI components",
+    "Use React, Tailwind CSS, and React Query for frontend implementation"
+  ],
+  "nonGoals": [
+    "Actual app downloads or file hosting",
+    "Payment processing or paid apps",
+    "App update notifications",
+    "User profiles beyond basic authentication",
+    "Admin dashboard for app management",
+    "Real-time chat or messaging features"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Modern app store hero banner with vibrant gradient background and digital marketplace theme (hero-banner.dim_1200x400.png)",
+      "Placeholder app icon for Games category showing game controller symbol (icon-games.dim_128x128.png)",
+      "Placeholder app icon for Social category showing people connection symbol (icon-social.dim_128x128.png)",
+      "Placeholder app icon for Productivity category showing checklist or tools symbol (icon-productivity.dim_128x128.png)",
+      "Placeholder app icon for Entertainment category showing play or media symbol (icon-entertainment.dim_128x128.png)",
+      "Placeholder app icon for Education category showing book or graduation cap symbol (icon-education.dim_128x128.png)",
+      "Placeholder app icon for Tools category showing wrench or settings symbol (icon-tools.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Champ Playstore Frontend Implementation Plan",
+  "requirements": [
+    {
+      "id": "REQ-5",
+      "summary": "Build home page displaying featured apps, popular apps, and category sections with horizontal scrollable app cards",
+      "acceptanceCriteria": [
+        "Home page renders with distinct sections for featured and popular apps",
+        "Each app card displays icon, name, developer, and star rating",
+        "Category sections are horizontally scrollable",
+        "Page is responsive and works on mobile and desktop"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create home page component that fetches all apps using getAllApps backend method, displays featured apps section, popular apps sorted by downloadCount, and category sections with horizontal scrollable cards. Each app card shows icon, name, developer, and rating. Use the generated hero-banner.dim_1200x400.png from frontend/public/assets/generated/hero-banner.dim_1200x400.png as the hero banner image."
+        },
+        {
+          "path": "frontend/src/components/AppCard.tsx",
+          "operation": "create",
+          "description": "Create reusable app card component that displays app icon, name, developer, and star rating. Make clickable to navigate to app detail page. Component should be responsive and work in grid and horizontal scroll layouts."
+        },
+        {
+          "path": "frontend/src/components/StarRating.tsx",
+          "operation": "create",
+          "description": "Create star rating display component that renders visual stars based on rating value (0-5 scale). Should show filled/half-filled/empty stars and average rating number."
+        },
+        {
+          "path": "frontend/src/components/CategorySection.tsx",
+          "operation": "create",
+          "description": "Create category section component with horizontal scrollable container for app cards. Takes category name and filtered apps as props. Use the generated category icons from frontend/public/assets/generated/ (icon-games.dim_128x128.png, icon-social.dim_128x128.png, icon-productivity.dim_128x128.png, icon-entertainment.dim_128x128.png, icon-education.dim_128x128.png, icon-tools.dim_128x128.png) to represent each category."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for home page at root path (/). Wire HomePage component into the router so it is accessible as the default landing page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create search interface with real-time filtering that displays matching results with app details",
+      "acceptanceCriteria": [
+        "Search bar is visible and accessible from the main navigation",
+        "Search results update dynamically as user types",
+        "Results display app icon, name, category, and rating",
+        "Clicking a result navigates to the app detail page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SearchBar.tsx",
+          "operation": "create",
+          "description": "Create search bar component with input field that triggers search on user input. Debounce input changes and call searchAppsByName and searchAppsByDeveloper backend methods to get matching results. Display results in a dropdown or results panel showing app icon, name, category, and rating. Make results clickable to navigate to app detail page."
+        },
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "create",
+          "description": "Create navigation bar component that includes SearchBar component and navigation links to categories. Make it sticky and responsive across screen sizes."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add Navbar component to the app layout so it appears on all pages and provides consistent navigation access."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement category browsing pages with grid layout, sorting options, and filtering capabilities",
+      "acceptanceCriteria": [
+        "Category page displays all apps in selected category in a grid layout",
+        "Users can sort apps by popularity, rating, or alphabetically",
+        "Page navigation works for each predefined category",
+        "Grid is responsive across screen sizes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CategoryPage.tsx",
+          "operation": "create",
+          "description": "Create category page component that uses route parameter to determine selected category. Fetch apps using getAppsByCategory backend method. Display apps in responsive grid layout using AppCard components. Implement sorting dropdown with options for popularity (downloadCount), rating, and alphabetical (name). Apply client-side sorting to fetched results."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for category pages at /category/:categoryName path. Wire CategoryPage component into the router with dynamic category parameter."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build detailed app pages showing full app information including screenshots gallery, description, ratings summary, and user reviews list",
+      "acceptanceCriteria": [
+        "App detail page displays all app metadata fields",
+        "Screenshots are shown in a gallery or carousel",
+        "Ratings are displayed with visual star representation and average score",
+        "User reviews are listed with rating, comment, and timestamp",
+        "Install/Download button is prominently displayed"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AppDetailPage.tsx",
+          "operation": "create",
+          "description": "Create app detail page component that uses route parameter for app ID. Fetch app details using getAppById backend method. Display large app icon, name, developer, version, file size, release date, full description, and screenshots gallery. Show ratings summary with StarRating component and average score. List all reviews with rating stars, comment text, and formatted timestamp. Include prominent Install/Download button (non-functional per non-goals). Make layout responsive."
+        },
+        {
+          "path": "frontend/src/components/ScreenshotsGallery.tsx",
+          "operation": "create",
+          "description": "Create screenshots gallery component that displays app screenshots in a carousel or grid format with image preview functionality. Takes array of screenshot URLs as props."
+        },
+        {
+          "path": "frontend/src/components/ReviewsList.tsx",
+          "operation": "create",
+          "description": "Create reviews list component that displays array of reviews with star ratings, comment text, and formatted timestamps. Use StarRating component for visual rating display."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for app detail pages at /app/:appId path. Wire AppDetailPage component into the router with dynamic app ID parameter."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create review submission interface allowing users to select star rating and write text review",
+      "acceptanceCriteria": [
+        "Review form includes star rating selector (1-5 stars)",
+        "Text area allows users to write review comments",
+        "Submit button posts review to backend",
+        "Form validates that rating is selected before submission",
+        "Success message shown after successful review submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ReviewForm.tsx",
+          "operation": "create",
+          "description": "Create review submission form component with interactive star rating selector (1-5 stars) and text area for comment. Validate that rating is selected before allowing submission. On submit, call addReview backend method with appId, rating, and comment. Show success message after successful submission and refresh reviews list. Handle errors appropriately."
+        },
+        {
+          "path": "frontend/src/components/StarRatingInput.tsx",
+          "operation": "create",
+          "description": "Create interactive star rating input component that allows users to select a rating from 1 to 5 stars. Show hover states and highlight selected rating. Return selected rating value to parent form."
+        },
+        {
+          "path": "frontend/src/pages/AppDetailPage.tsx",
+          "operation": "modify",
+          "description": "Add ReviewForm component to app detail page below the reviews list. Pass app ID to form for review submission. Ensure form is visible and accessible to users."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Design vibrant, modern app store interface with bold color scheme, card-based layouts, smooth transitions, and engaging visual elements",
+      "acceptanceCriteria": [
+        "Consistent color palette applied across all pages",
+        "Typography uses clear hierarchy with readable fonts",
+        "Interactive elements have hover and focus states",
+        "Card components have consistent styling with shadows or borders",
+        "Overall design feels cohesive and professional"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define vibrant color palette with bold primary, secondary, and accent colors inspired by digital marketplaces. Set up typography scale with clear hierarchy. Add CSS custom properties for colors, spacing, and transitions. Define base styles for interactive elements including hover and focus states. Ensure design is cohesive across all components."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration with custom color palette matching the app store theme. Add custom spacing, border radius values for card components. Configure typography plugin for clear text hierarchy. Add animation utilities for smooth transitions."
+        },
+        {
+          "path": "frontend/src/components/AppCard.tsx",
+          "operation": "modify",
+          "description": "Apply card-based styling with shadows, borders, and hover effects. Use consistent padding and spacing. Ensure cards have smooth transitions and engaging visual feedback on interaction."
+        }
+      ]
+    }
+  ]
+}

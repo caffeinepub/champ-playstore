@@ -1,0 +1,127 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-home-page-displaying-featured-apps-popular-apps-sorted-by-download-count-and-category-sections-with-horizontal-scrollable-app-cards-showing-app-icon-name-developer-and-rating",
+      "featureTitle": "Build a home page displaying featured apps, popular apps (sorted by download count), and category sections with horizontal scrollable app cards showing app icon, name, developer, and rating",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AppCard.tsx",
+        "frontend/src/components/CategorySection.tsx",
+        "frontend/src/components/StarRating.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-search-interface-with-a-prominent-search-bar-that-filters-apps-in-real-time-as-users-type-displaying-matching-results-with-app-icons-names-categories-and-ratings",
+      "featureTitle": "Create a search interface with a prominent search bar that filters apps in real-time as users type, displaying matching results with app icons, names, categories, and ratings",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Navbar.tsx",
+        "frontend/src/components/SearchBar.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-category-browsing-pages-showing-all-apps-within-a-selected-category-with-grid-layout-sorting-options-by-popularity-rating-name-and-filtering-capabilities",
+      "featureTitle": "Implement category browsing pages showing all apps within a selected category with grid layout, sorting options (by popularity, rating, name), and filtering capabilities",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/CategoryPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-detailed-app-pages-showing-full-app-information-including-large-icon-screenshots-gallery-full-description-developer-info-version-details-file-size-ratings-summary-and-user-reviews-list",
+      "featureTitle": "Build detailed app pages showing full app information including large icon, screenshots gallery, full description, developer info, version details, file size, ratings summary, and user reviews list",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ReviewsList.tsx",
+        "frontend/src/components/ScreenshotsGallery.tsx",
+        "frontend/src/pages/AppDetailPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-review-submission-interface-on-app-detail-pages-allowing-users-to-select-a-star-rating-and-write-a-text-review-then-submit-it-to-the-backend",
+      "featureTitle": "Create a review submission interface on app detail pages allowing users to select a star rating and write a text review, then submit it to the backend",
+      "files": [
+        "frontend/src/components/ReviewForm.tsx",
+        "frontend/src/components/StarRatingInput.tsx",
+        "frontend/src/pages/AppDetailPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-vibrant-modern-app-store-interface-with-a-bold-color-scheme-inspired-by-digital-marketplaces-featuring-card-based-layouts-smooth-transitions-clear-typography-hierarchy-and-engaging-visual-elements-that-create-an-inviting-browsing-experience",
+      "featureTitle": "Design a vibrant, modern app store interface with a bold color scheme inspired by digital marketplaces, featuring card-based layouts, smooth transitions, clear typography hierarchy, and engaging visual elements that create an inviting browsing experience",
+      "files": [
+        "frontend/src/components/AppCard.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
